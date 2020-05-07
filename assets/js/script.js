@@ -101,7 +101,14 @@ var sectionWelcome = document.querySelector("#welcome-modal");
 //var to access the question section
 var sectionQuiz = document.querySelector("#modal-section");
 
-//var creating attribute to show
+//var creating attribute to show the questions
+var questionEl = document.querySelector(".question-modal");
+
+//creating a button for the choices
+var btnEl = document.createElement("button");
+
+//appending the btn to the question-modal
+var btnElAppend = questionEl.appendChild(btnEl);
 
 //adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", startQuiz);
@@ -110,7 +117,19 @@ startEl.addEventListener("click", startQuiz);
 function startQuiz() {
 	//hidden the section when the button is pressed
 	sectionWelcome.style.display = "none";
-	//show the sectionQuiz
+	//show the sectionQuiz with the add class d-flex
 	sectionQuiz.classList.add("d-flex");
+	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
+
+	//control flow to get all the questions and choices
+	for (let index = 0; index < quizArray.length; index++) {
+		questionEl.textContent = quizArray[index].question;
+		{
+			for (let a = 0; a < quizArray.answers.length; a++) {
+				btnElAppend.classList.add("btn", "btn-info", "mt-5", "px-5", "mb-3");
+				btnEl.label = quizArray.answers[a].choice;
+			}
+		}
+	}
 }
