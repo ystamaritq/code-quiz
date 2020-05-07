@@ -1,3 +1,75 @@
+var quizArray = [
+	{
+		question:
+			"What is the HTML tag under which one can write the JavaScript code?",
+		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
+		hit: "C. Correct",
+	},
+
+	{
+		question:
+			"Choose the correct JavaScript syntax to change the content of the following HTML code",
+		answers: [
+			"A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
+			"B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+			"C. document.getId(“geek”)=”I am a Geek”;",
+			"D.  document.getElementById(“geek”).innerHTML=I am a Geek;",
+		],
+		hit: "B. Correct",
+	},
+
+	{
+		question: "How do you create a function in JavaScript?",
+		answers: [
+			"A. function:myFunction()",
+			"B. function myFunction()",
+			"C. function = myFunction()",
+			"D. None of the above.",
+		],
+		hit: "B. Correct",
+	},
+
+	{
+		question:
+			"Which built-in method combines the text of two strings and returns a new string?",
+		answers: [
+			"A. append()",
+			"B. concat()",
+			"C. attach()",
+			"D. None of the above.",
+		],
+		hit: "B. Correct",
+	},
+
+	{
+		question:
+			"Which of the following function of String object returns the characters in a string between two indexes into the string?",
+		answers: ["A. split()", "B. slice()", "C. substr()", "D. substring()"],
+		hit: "D. Correct",
+	},
+
+	{
+		question: "How to write an IF statement in JavaScript?",
+		answers: [
+			"A.  if i = 5",
+			"B.  if (i == 5)",
+			"C.  if i == 5 then",
+			"D.  if i = 5 then",
+		],
+		hit: "B. Correct",
+	},
+];
+
+var startEl = document.querySelector("#start");
+
+var sectionWelcome = document.querySelector("welcome-modal");
+
+var sectionQuiz = document.querySelector("modal");
+
+startEl.addEventListener("click", function () {
+	alert("The button is working!");
+});
+
 /*
 example for clear the element
 
