@@ -1,3 +1,4 @@
+// array of the quiz (question, choices, hit)
 var quizArray = [
 	{
 		question:
@@ -91,26 +92,22 @@ var quizArray = [
 	},
 ];
 
+//var to access the button element *start the quiz*
 var startEl = document.querySelector("#start");
 
+//var to access the welcome section
 var sectionWelcome = document.querySelector("#welcome-modal");
 
+//var to access the question section
 var sectionQuiz = document.querySelector("#question-modal");
 
+//adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", function () {
 	alert("The button is working!");
 });
 
 /*
-example for clear the element
 
-var typefaceEl = document.querySelector("#typeface");
-var clearEl = document.querySelector("#clear");
-var h1El = document.querySelector("#h1");
-var h2El = document.querySelector("#h2");
-var h3El = document.querySelector("#h3");
-var pEl = document.querySelector("#p");
-var textAreaEl = document.querySelector("#textarea");
 
 var elements = [h1El, h2El, h3El, pEl];
 
