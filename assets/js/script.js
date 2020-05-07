@@ -9,15 +9,15 @@ var quizArray = [
 				id: "A",
 			},
 			{
-				choiceB: "B. <scripted>",
+				choice: "B. <scripted>",
 				id: "B",
 			},
 			{
-				choiceC: "C. <script>",
+				choice: "C. <script>",
 				id: "C",
 			},
 			{
-				choiceD: "D. <js>",
+				choice: "D. <js>",
 				id: "D",
 			},
 		],
@@ -104,17 +104,20 @@ var sectionQuiz = document.querySelector("#modal-section");
 //var creating attribute to show the questions
 var questionEl = document.querySelector(".question-modal");
 
-//creating a button for the choices
-var btnEl = document.createElement("button");
-
-//appending the btn to the question-modal
-var btnElAppend = questionEl.appendChild(btnEl);
-
 //var options-modal
 var optionsEl = document.querySelector(".options-modal");
 
+//creating a button for the choices
+var btnEl = document.createElement("BUTTON");
+
+// //appending the btn to the question-modal
+// var btnElAppend = optionsEl.appendChild(btnEl);
+
 //adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", startQuiz);
+
+//var index to go through the array
+var indexArray = 0;
 
 //function startQuiz
 function startQuiz() {
@@ -125,15 +128,12 @@ function startQuiz() {
 	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
 
-	//control flow to get all the questions and choices
-	for (let index = 0; index < quizArray.length; index++) {
-		questionEl.textContent = quizArray[index].question;
-		{
-			for (let a = 0; a < quizArray[index].answers.length; a++) {
-				btnEl.classList.add("btn", "btn-info", "mt-5", "px-5", "mb-3");
-				btnEl.label = quizArray[index].answers[a].choice;
-				btnElAppend;
-			}
-		}
+	questionEl.textContent = quizArray[indexArray].question;
+
+	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
+		var btnEl = document.createElement("BUTTON");
+		btnEl.classList.add("btn", "btn-info", "mt-5", "px-5", "mb-3");
+		btnEl.innerHTML = quizArray[indexArray].answers[a].choice;
+		optionsEl.appendChild(btnEl);
 	}
 }
