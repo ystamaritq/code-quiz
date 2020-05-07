@@ -5,21 +5,29 @@ var quizArray = [
 		question:
 			"What is the HTML tag under which one can write the JavaScript code?",
 		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+		hit: "C. Correct",
 	},
 
 	{
 		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+			"Choose the correct JavaScript syntax to change the content of the following HTML code",
+		answers: [
+			"A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
+			"B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+			"C. document.getId(“geek”)=”I am a Geek”;",
+			"D.  document.getElementById(“geek”).innerHTML=I am a Geek;",
+		],
+		hit: "B. Correct",
 	},
 
 	{
-		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+		question: "How do you create a function in JavaScript?",
+		answers: [
+			"A. function:myFunction()",
+			"B. function myFunction()",
+			"C.  function = myFunction()",
+		],
+		hit: "B. Correct",
 	},
 
 	{
