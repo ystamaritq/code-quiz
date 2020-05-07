@@ -99,43 +99,18 @@ var startEl = document.querySelector("#start");
 var sectionWelcome = document.querySelector("#welcome-modal");
 
 //var to access the question section
-var sectionQuiz = document.querySelector("#question-modal");
+var sectionQuiz = document.querySelector("#modal-section");
+
+//var creating attribute to show
 
 //adding addEventListener to the button to start the quiz
-startEl.addEventListener("click", function () {
-	alert("The button is working!");
-});
+startEl.addEventListener("click", startQuiz);
 
-/*
-
-
-var elements = [h1El, h2El, h3El, pEl];
-
-var typeface;
-
-typefaceEl.addEventListener("change", function (event) {
-  event.preventDefault();
-  typeface = typefaceEl.value;
-  document.querySelector(".container").style.fontFamily = typeface;
-});
-
-textAreaEl.addEventListener("keydown", function (event) {
-  var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(
-    ""
-  );
-  if (alphabetNumericCharacters.includes(key)) {
-    elements.forEach(function (element) {
-      element.textContent += event.key;
-    });
-  }
-});
-
-clearEl.addEventListener("click", function (event) {
-  event.preventDefault();
-  textAreaEl.value = "";
-  elements.forEach(function (element) {
-    element.textContent = "";
-  });
-});
- */
+//function startQuiz
+function startQuiz() {
+	//hidden the section when the button is pressed
+	sectionWelcome.style.display = "none";
+	//show the sectionQuiz
+	sectionQuiz.classList.add("d-flex");
+	sectionQuiz.classList.remove("d-none");
+}
