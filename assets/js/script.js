@@ -125,9 +125,15 @@ function startQuiz() {
 	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
 
-	//add a class
+	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
 	questionEl.textContent = quizArray[indexArray].question;
+
+	showPage();
+}
+
+function showPage() {
+	// TODO: remove all existing children
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
 		var btnEl = document.createElement("BUTTON");
@@ -135,5 +141,41 @@ function startQuiz() {
 		btnEl.textContent = quizArray[indexArray].answers[a].choice;
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
+		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit)
+			btnEl.addEventListener("click", clickedCorrect);
+		else btnEl.addEventListener("click", clickedWrong);
 	}
 }
+
+function clickedCorrect() {
+	alert("correct");
+	indexArray++;
+	showPage();
+}
+
+function clickedWrong() {
+	alert("wrong");
+	indexArray++;
+	showPage();
+}
+
+// function isClicked() {
+// 	for (let h = 0; h < quizArray[indexArray].answers.length; h++) {
+// 		if (
+// 			quizArray[indexArray].answers[h].hit !==
+// 			quizArray[indexArray].answers[h].id
+// 		) {
+// 			var hitShow = document.querySelector(".hit");
+// 			hitShow.classList.add("mt-4");
+// 			hitShow.textContent = "Wrong Answer! Keep trying";
+// 		} else {
+// 			var hitShow = document.querySelector(".hit");
+// 			hitShow.classList.add("mt-4");
+// 			hitShow.textContent = quizArray[indexArray].answers[h].hit;
+// 		}
+// 	}
+// }
+
+// function nextQuestion() {
+// 	alert("trying to get there");
+// }
