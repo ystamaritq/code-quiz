@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="Description" content="Java Script Code Quiz">
+    <title>Code Quiz</title>
+
+    <!-- Reset CSS  -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+
+    <!-- Bootstrap CSS CDN https://getbootstrap.com/docs/4.4/getting-started/download/#bootstrapcdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="d-flex p-3 justify-content-between font-weight-bolder">
+        <div class="score text-info">View Highscores</div>
+        <div class="timer text-muted">Time: <span id="count">0</span></div>
+    </header>
+
+    <!-- container -->
+    <main class="container d-flex justify-content-center p-5">
+        <!-- section to show and hide questions -->
+        <section>
+            <!-- append the question -->
+            <div class="question"></div>
+            <div class="content"></div>
+        </section>
+
+        <section>
+            <!-- welcome page section -->
+            <article class="text-center">
+                <h1 class="text-info">Welcome to Javascript Quiz!</h1>
+                <p class="text-justify text-muted mt-5 text-center">Once you click the start button you will
+                    be presented with a series of multiple choice questions. </p>
+                <p class="text-justify text-muted">You have 70 seconds to finish.
+                    For every wrong answer you choose time bill be deducted from the <img src="./assets/img/clock.gif"
+                        alt="clock"></p>
+                <div class="text-muted font-weight-bolder font-italic">Try and beat the high score!</div>
+                <button type="button" class="btn btn-info mt-5 px-5">Start Quiz</button>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- 
+        
+     -->
+
+
+
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
