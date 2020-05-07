@@ -60,6 +60,16 @@ var quizArray = [
 	},
 ];
 
+var startEl = document.querySelector("#start");
+
+var sectionWelcome = document.querySelector("welcome-modal");
+
+var sectionQuiz = document.querySelector("modal");
+
+startEl.addEventListener("click", function () {
+	alert("The button is working!");
+});
+
 /*
 example for clear the element
 
