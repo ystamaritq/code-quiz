@@ -1,113 +1,139 @@
+// array of the quiz (question, choices, hit)
 var quizArray = [
 	{
 		question:
 			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. Correct",
+		answers: [
+			{
+				choice: "A. <javascript>",
+				id: "A",
+			},
+			{
+				choice: "B. <scripted>",
+				id: "B",
+			},
+			{
+				choice: "C. <script>",
+				id: "C",
+			},
+			{
+				choice: "D. <js>",
+				id: "D",
+			},
+		],
+		hit: "C",
 	},
 
 	{
 		question:
 			"Choose the correct JavaScript syntax to change the content of the following HTML code",
 		answers: [
-			"A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
-			"B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
-			"C. document.getId(“geek”)=”I am a Geek”;",
-			"D.  document.getElementById(“geek”).innerHTML=I am a Geek;",
+			{
+				choice: "A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
+				id: "A",
+			},
+			{
+				choice: "B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+				id: "B",
+			},
+			{ choice: "C. document.getId(“geek”)=”I am a Geek”;", id: "C" },
+			{
+				choice: "D. document.getElementById(“geek”).innerHTML=I am a Geek;",
+				id: "D",
+			},
 		],
-		hit: "B. Correct",
+		hit: "D",
 	},
 
 	{
 		question: "How do you create a function in JavaScript?",
 		answers: [
-			"A. function:myFunction()",
-			"B. function myFunction()",
-			"C. function = myFunction()",
-			"D. None of the above.",
+			{ choice: "A. function:myFunction()", id: "A" },
+			{ choice: "B. function myFunction()", id: "B" },
+			{ choice: "C. function = myFunction()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 
 	{
 		question:
 			"Which built-in method combines the text of two strings and returns a new string?",
 		answers: [
-			"A. append()",
-			"B. concat()",
-			"C. attach()",
-			"D. None of the above.",
+			{ choice: "A. append()", id: "A" },
+			{ choice: "B. concat()", id: "B" },
+			{ choice: "C. attach()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 
 	{
 		question:
 			"Which of the following function of String object returns the characters in a string between two indexes into the string?",
-		answers: ["A. split()", "B. slice()", "C. substr()", "D. substring()"],
-		hit: "D. Correct",
+		answers: [
+			{ choice: "A. split()", id: "A" },
+			{ choice: "B. slice()", id: "B" },
+			{ choice: "C. substr()", id: "C" },
+			{ choice: "D. substring()", id: "D" },
+		],
+		hit: "D",
 	},
 
 	{
 		question: "How to write an IF statement in JavaScript?",
 		answers: [
-			"A.  if i = 5",
-			"B.  if (i == 5)",
-			"C.  if i == 5 then",
-			"D.  if i = 5 then",
+			{ choice: "A.  if i = 5", id: "A" },
+			{ choice: "B.  if (i == 5)", id: "B" },
+			{ choice: "C.  if i == 5 then", id: "C" },
+			{ choice: "D.  if i = 5 then", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 ];
 
+//var to access the button element *start the quiz*
 var startEl = document.querySelector("#start");
 
-var sectionWelcome = document.querySelector("welcome-modal");
+//var to access the welcome section
+var sectionWelcome = document.querySelector("#welcome-modal");
 
-var sectionQuiz = document.querySelector("modal");
+//var to access the question section
+var sectionQuiz = document.querySelector("#modal-section");
 
-startEl.addEventListener("click", function () {
-	alert("The button is working!");
-});
+//var creating attribute to show the questions
+var questionEl = document.querySelector(".question-modal");
 
-/*
-example for clear the element
+//var options-modal
+var optionsEl = document.querySelector(".options-modal");
 
-var typefaceEl = document.querySelector("#typeface");
-var clearEl = document.querySelector("#clear");
-var h1El = document.querySelector("#h1");
-var h2El = document.querySelector("#h2");
-var h3El = document.querySelector("#h3");
-var pEl = document.querySelector("#p");
-var textAreaEl = document.querySelector("#textarea");
+//creating a button for the choices
+var btnEl = document.createElement("BUTTON");
 
-var elements = [h1El, h2El, h3El, pEl];
+//adding addEventListener to the button to start the quiz
+startEl.addEventListener("click", startQuiz);
 
-var typeface;
+//var index to go through the array
+var indexArray = 0;
 
-typefaceEl.addEventListener("change", function (event) {
-  event.preventDefault();
-  typeface = typefaceEl.value;
-  document.querySelector(".container").style.fontFamily = typeface;
-});
+//function startQuiz
+function startQuiz() {
+	//hidden the section when the button is pressed
+	sectionWelcome.style.display = "none";
+	//show the sectionQuiz with the add class d-flex
+	sectionQuiz.classList.add("d-flex");
+	//remove the sectionQuiz with the remove class d-none
+	sectionQuiz.classList.remove("d-none");
 
-textAreaEl.addEventListener("keydown", function (event) {
-  var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split(
-    ""
-  );
-  if (alphabetNumericCharacters.includes(key)) {
-    elements.forEach(function (element) {
-      element.textContent += event.key;
-    });
-  }
-});
+	//add a class
+	questionEl.classList.add("mb-3");
+	questionEl.textContent = quizArray[indexArray].question;
 
-clearEl.addEventListener("click", function (event) {
-  event.preventDefault();
-  textAreaEl.value = "";
-  elements.forEach(function (element) {
-    element.textContent = "";
-  });
-});
- */
+	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
+		var btnEl = document.createElement("BUTTON");
+		btnEl.classList.add("btn", "btn-info", "px-5", "mb-3", "mt-2");
+		btnEl.textContent = quizArray[indexArray].answers[a].choice;
+		optionsEl.classList.add("d-flex", "flex-column");
+		optionsEl.appendChild(btnEl);
+	}
+}

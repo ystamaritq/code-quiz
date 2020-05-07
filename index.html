@@ -31,18 +31,11 @@
     <!-- container -->
     <main class="container d-flex justify-content-center p-5 flex-column">
         <!-- section to show and hide questions -->
-        <section class="d-none flex-column align-items-center text-center" id="modal">
+        <section class="d-none flex-column align-items-center text-center" id="modal-section">
             <!-- append the question -->
             <div class="question-modal">
             </div>
             <div class="options-modal">
-                <ul>
-                    <li><button type="button" id="optionA" class="btn btn-info mt-5 px-5 mb-3"></button></li>
-                    <li><button type="button" id="optionB" class="btn btn-info px-5 mb-3"></button></li>
-                    <li><button type="button" id="optionC" class="btn btn-info px-5 mb-3"></button></li>
-                    <li><button type="button" id="optionD" class="btn btn-info px-5 mb-3"></button></li>
-                    <li><button type="button" id="optionE" class="btn btn-info px-5"></button></li>
-                </ul>
             </div>
         </section>
 
@@ -52,7 +45,7 @@
                 <h1 class="text-info">Welcome to Javascript Quiz!</h1>
                 <p class="text-justify text-muted mt-5 text-center">Once you click the start button you will
                     be presented with a series of multiple choice questions. </p>
-                <p class="text-justify text-muted">You have 70 seconds to finish.
+                <p class="text-justify text-muted text-center">You have 70 seconds to finish.
                     For every wrong answer you choose time bill be deducted from the <img src="./assets/img/clock.gif"
                         alt="clock"></p>
                 <div class="text-muted font-weight-bolder font-italic">Try and beat the high score!</div>
@@ -70,12 +63,12 @@
 
     <script type="text/javascript" src="./assets/js/script.js"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
