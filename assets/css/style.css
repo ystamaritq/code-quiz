@@ -7,3 +7,7 @@ body {
 p {
 	line-height: 14px;
 }
+
+img {
+	width: 70px;
+}
