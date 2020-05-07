@@ -27,53 +27,67 @@ var quizArray = [
 		question:
 			"Choose the correct JavaScript syntax to change the content of the following HTML code",
 		answers: [
-			"A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
-			"B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
-			"C. document.getId(“geek”)=”I am a Geek”;",
-			"D.  document.getElementById(“geek”).innerHTML=I am a Geek;",
+			{
+				choice: "A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
+				id: "A",
+			},
+			{
+				choice: "B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
+				id: "B",
+			},
+			{ choice: "C. document.getId(“geek”)=”I am a Geek”;", id: "C" },
+			{
+				choice: "D. document.getElementById(“geek”).innerHTML=I am a Geek;",
+				id: "D",
+			},
 		],
-		hit: "B. Correct",
+		hit: "D",
 	},
 
 	{
 		question: "How do you create a function in JavaScript?",
 		answers: [
-			"A. function:myFunction()",
-			"B. function myFunction()",
-			"C. function = myFunction()",
-			"D. None of the above.",
+			{ choice: "A. function:myFunction()", id: "A" },
+			{ choice: "B. function myFunction()", id: "B" },
+			{ choice: "C. function = myFunction()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 
 	{
 		question:
 			"Which built-in method combines the text of two strings and returns a new string?",
 		answers: [
-			"A. append()",
-			"B. concat()",
-			"C. attach()",
-			"D. None of the above.",
+			{ choice: "A. append()", id: "A" },
+			{ choice: "B. concat()", id: "B" },
+			{ choice: "C. attach()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 
 	{
 		question:
 			"Which of the following function of String object returns the characters in a string between two indexes into the string?",
-		answers: ["A. split()", "B. slice()", "C. substr()", "D. substring()"],
-		hit: "D. Correct",
+		answers: [
+			{ choice: "A. split()", id: "A" },
+			{ choice: "B. slice()", id: "B" },
+			{ choice: "C. substr()", id: "C" },
+			{ choice: "D. substring()", id: "D" },
+		],
+		hit: "D",
 	},
 
 	{
 		question: "How to write an IF statement in JavaScript?",
 		answers: [
-			"A.  if i = 5",
-			"B.  if (i == 5)",
-			"C.  if i == 5 then",
-			"D.  if i = 5 then",
+			{ choice: "A.  if i = 5", id: "A" },
+			{ choice: "B.  if (i == 5)", id: "B" },
+			{ choice: "C.  if i == 5 then", id: "C" },
+			{ choice: "D.  if i = 5 then", id: "D" },
 		],
-		hit: "B. Correct",
+		hit: "B",
 	},
 ];
 
