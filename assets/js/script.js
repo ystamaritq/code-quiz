@@ -1,5 +1,3 @@
-var quizObject = ques;
-
 var quizArray = [
 	{
 		question:
@@ -25,37 +23,40 @@ var quizArray = [
 		answers: [
 			"A. function:myFunction()",
 			"B. function myFunction()",
-			"C.  function = myFunction()",
+			"C. function = myFunction()",
+			"D. None of the above.",
 		],
 		hit: "B. Correct",
 	},
 
 	{
 		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+			"Which built-in method combines the text of two strings and returns a new string?",
+		answers: [
+			"A. append()",
+			"B. concat()",
+			"C. attach()",
+			"D. None of the above.",
+		],
+		hit: "B. Correct",
 	},
 
 	{
 		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+			"Which of the following function of String object returns the characters in a string between two indexes into the string?",
+		answers: ["A. split()", "B. slice()", "C. substr()", "D. substring()"],
+		hit: "D. Correct",
 	},
 
 	{
-		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
-	},
-
-	{
-		question:
-			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. <script>",
+		question: "How to write an IF statement in JavaScript?",
+		answers: [
+			"A.  if i = 5",
+			"B.  if (i == 5)",
+			"C.  if i == 5 then",
+			"D.  if i = 5 then",
+		],
+		hit: "B. Correct",
 	},
 ];
 
