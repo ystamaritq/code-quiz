@@ -31,7 +31,7 @@
     <!-- container -->
     <main class="container d-flex justify-content-center p-5 flex-column">
         <!-- section to show and hide questions -->
-        <section class="d-none flex-column align-items-center text-center" id="modal">
+        <section class="card d-flex flex-column align-items-center text-center" id="modal">
             <!-- append the question -->
             <div class="question-modal">
             </div>
@@ -46,13 +46,13 @@
             </div>
         </section>
 
-        <section id="welcome-modal">
+        <section id="welcome-modal" hidden>
             <!-- welcome page section -->
             <article class="text-center">
                 <h1 class="text-info">Welcome to Javascript Quiz!</h1>
                 <p class="text-justify text-muted mt-5 text-center">Once you click the start button you will
                     be presented with a series of multiple choice questions. </p>
-                <p class="text-justify text-muted">You have 70 seconds to finish.
+                <p class="text-justify text-muted text-center">You have 70 seconds to finish.
                     For every wrong answer you choose time bill be deducted from the <img src="./assets/img/clock.gif"
                         alt="clock"></p>
                 <div class="text-muted font-weight-bolder font-italic">Try and beat the high score!</div>

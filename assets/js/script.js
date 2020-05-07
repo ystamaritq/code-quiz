@@ -2,8 +2,25 @@ var quizArray = [
 	{
 		question:
 			"What is the HTML tag under which one can write the JavaScript code?",
-		answers: ["A. <javascript>", "B. <scripted>", "C. <script>", "D. <js>"],
-		hit: "C. Correct",
+		answers: [
+			{
+				choice: "A. <javascript>",
+				id: "A",
+			},
+			{
+				choiceB: "B. <scripted>",
+				id: "B",
+			},
+			{
+				choiceC: "C. <script>",
+				id: "C",
+			},
+			{
+				choiceD: "D. <js>",
+				id: "D",
+			},
+		],
+		hit: "C",
 	},
 
 	{
@@ -62,9 +79,9 @@ var quizArray = [
 
 var startEl = document.querySelector("#start");
 
-var sectionWelcome = document.querySelector("welcome-modal");
+var sectionWelcome = document.querySelector("#welcome-modal");
 
-var sectionQuiz = document.querySelector("modal");
+var sectionQuiz = document.querySelector("#question-modal");
 
 startEl.addEventListener("click", function () {
 	alert("The button is working!");
