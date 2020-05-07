@@ -110,6 +110,9 @@ var btnEl = document.createElement("button");
 //appending the btn to the question-modal
 var btnElAppend = questionEl.appendChild(btnEl);
 
+//var options-modal
+var optionsEl = document.querySelector(".options-modal");
+
 //adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", startQuiz);
 
@@ -126,9 +129,10 @@ function startQuiz() {
 	for (let index = 0; index < quizArray.length; index++) {
 		questionEl.textContent = quizArray[index].question;
 		{
-			for (let a = 0; a < quizArray.answers.length; a++) {
-				btnElAppend.classList.add("btn", "btn-info", "mt-5", "px-5", "mb-3");
-				btnEl.label = quizArray.answers[a].choice;
+			for (let a = 0; a < quizArray[index].answers.length; a++) {
+				btnEl.classList.add("btn", "btn-info", "mt-5", "px-5", "mb-3");
+				btnEl.label = quizArray[index].answers[a].choice;
+				btnElAppend;
 			}
 		}
 	}
