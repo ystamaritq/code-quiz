@@ -7,3 +7,8 @@ body {
 img {
 	width: 50px;
 }
+
+.question-modal {
+	font-size: 30px;
+	font-family: sans-serif;
+}

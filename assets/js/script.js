@@ -1,3 +1,12 @@
+var questions = [
+	"What is the HTML tag under which one can write the JavaScript code?",
+	"Which of the following is the correct syntax to display “example” in an alert box?",
+];
+
+var answers = [];
+
+var timeLeft = 70;
+
 /*
 example for clear the element
 
