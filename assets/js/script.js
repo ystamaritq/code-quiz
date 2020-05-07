@@ -110,9 +110,6 @@ var optionsEl = document.querySelector(".options-modal");
 //creating a button for the choices
 var btnEl = document.createElement("BUTTON");
 
-// //appending the btn to the question-modal
-// var btnElAppend = optionsEl.appendChild(btnEl);
-
 //adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", startQuiz);
 
@@ -128,6 +125,8 @@ function startQuiz() {
 	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
 
+	//add a class
+	questionEl.classList.add("mb-3");
 	questionEl.textContent = quizArray[indexArray].question;
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
