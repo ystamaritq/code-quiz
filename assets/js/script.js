@@ -124,16 +124,16 @@ function startQuiz() {
 	sectionQuiz.classList.add("d-flex");
 	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
-
-	//add a margin-bottom to the questions
-	questionEl.classList.add("mb-3");
-	questionEl.textContent = quizArray[indexArray].question;
-
 	showPage();
 }
 
 function showPage() {
 	// TODO: remove all existing children
+
+	//add a margin-bottom to the questions
+	questionEl.classList.add("mb-3");
+
+	questionEl.textContent = quizArray[indexArray].question;
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
 		var btnEl = document.createElement("BUTTON");
@@ -148,34 +148,17 @@ function showPage() {
 }
 
 function clickedCorrect() {
-	alert("correct");
-	indexArray++;
-	showPage();
+	var hitShow = document.querySelector(".hit");
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Rigth Answer!";
+	// indexArray++;
+	// showPage();
 }
 
 function clickedWrong() {
-	alert("wrong");
-	indexArray++;
-	showPage();
+	var hitShow = document.querySelector(".hit");
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Wrong Answer! Keep trying";
+	// indexArray++;
+	// showPage();
 }
-
-// function isClicked() {
-// 	for (let h = 0; h < quizArray[indexArray].answers.length; h++) {
-// 		if (
-// 			quizArray[indexArray].answers[h].hit !==
-// 			quizArray[indexArray].answers[h].id
-// 		) {
-// 			var hitShow = document.querySelector(".hit");
-// 			hitShow.classList.add("mt-4");
-// 			hitShow.textContent = "Wrong Answer! Keep trying";
-// 		} else {
-// 			var hitShow = document.querySelector(".hit");
-// 			hitShow.classList.add("mt-4");
-// 			hitShow.textContent = quizArray[indexArray].answers[h].hit;
-// 		}
-// 	}
-// }
-
-// function nextQuestion() {
-// 	alert("trying to get there");
-// }
