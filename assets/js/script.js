@@ -113,6 +113,9 @@ var btnEl = document.createElement("BUTTON");
 //adding addEventListener to the button to start the quiz
 startEl.addEventListener("click", startQuiz);
 
+//var hit selector
+var hitShow = document.querySelector(".hit");
+
 //var index to go through the array
 var indexArray = 0;
 
@@ -153,7 +156,6 @@ function showPage() {
 }
 
 function clickedCorrect() {
-	var hitShow = document.querySelector(".hit");
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Rigth Answer!";
 	indexArray++;
@@ -162,7 +164,6 @@ function clickedCorrect() {
 }
 
 function clickedWrong() {
-	var hitShow = document.querySelector(".hit");
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Wrong Answer! Keep trying";
 	indexArray++;
