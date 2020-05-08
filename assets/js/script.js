@@ -124,9 +124,20 @@ function startQuiz() {
 	sectionQuiz.classList.add("d-flex");
 	//remove the sectionQuiz with the remove class d-none
 	sectionQuiz.classList.remove("d-none");
+	showPage();
+}
 
-	//add a class
+function cleanPage() {
+	if (indexArray > 0) {
+		questionEl.textContent = "";
+		optionsEl.textContent = "";
+	}
+}
+
+function showPage() {
+	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
+	//show the question
 	questionEl.textContent = quizArray[indexArray].question;
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
@@ -135,5 +146,26 @@ function startQuiz() {
 		btnEl.textContent = quizArray[indexArray].answers[a].choice;
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
+		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit)
+			btnEl.addEventListener("click", clickedCorrect);
+		else btnEl.addEventListener("click", clickedWrong);
 	}
+}
+
+function clickedCorrect() {
+	var hitShow = document.querySelector(".hit");
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Rigth Answer!";
+	indexArray++;
+	cleanPage();
+	showPage();
+}
+
+function clickedWrong() {
+	var hitShow = document.querySelector(".hit");
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Wrong Answer! Keep trying";
+	indexArray++;
+	cleanPage();
+	showPage();
 }
