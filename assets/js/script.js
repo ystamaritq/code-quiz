@@ -134,6 +134,7 @@ function cleanPage() {
 	if (indexArray > 0) {
 		questionEl.textContent = "";
 		optionsEl.textContent = "";
+		hitShow.textContent = "";
 	}
 }
 
@@ -150,23 +151,39 @@ function showPage() {
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
 		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit)
-			btnEl.addEventListener("click", clickedCorrect);
-		else btnEl.addEventListener("click", clickedWrong);
+			btnEl.addEventListener("click", timeDelayCorrect);
+		else btnEl.addEventListener("click", timeDelayWrong);
 	}
 }
 
-function clickedCorrect() {
-	hitShow.classList.add("mt-4");
-	hitShow.textContent = "Rigth Answer!";
-	indexArray++;
-	cleanPage();
-	showPage();
+function timeDelayCorrect() {
+	secondsDelay = 2;
+	var time = setInterval(function () {
+		secondsDelay = secondsDelay - 1;
+		hitShow.classList.add("mt-4");
+		hitShow.textContent = "Rigth Answer!";
+
+		if (secondsDelay === 0) {
+			clearInterval(time);
+			indexArray++;
+			cleanPage();
+			showPage();
+		}
+	}, 1000);
 }
 
-function clickedWrong() {
-	hitShow.classList.add("mt-4");
-	hitShow.textContent = "Wrong Answer! Keep trying";
-	indexArray++;
-	cleanPage();
-	showPage();
+function timeDelayWrong() {
+	secondsDelay = 2;
+	var time = setInterval(function () {
+		secondsDelay = secondsDelay - 1;
+		hitShow.classList.add("mt-4");
+		hitShow.textContent = "Wrong Answer! Keep trying";
+
+		if (secondsDelay === 0) {
+			clearInterval(time);
+			indexArray++;
+			cleanPage();
+			showPage();
+		}
+	}, 1000);
 }
