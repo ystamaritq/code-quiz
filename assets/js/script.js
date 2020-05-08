@@ -127,12 +127,17 @@ function startQuiz() {
 	showPage();
 }
 
-function showPage() {
-	// TODO: remove all existing children
+function cleanPage() {
+	if (indexArray > 0) {
+		questionEl.textContent = "";
+		optionsEl.textContent = "";
+	}
+}
 
+function showPage() {
 	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
-
+	//show the question
 	questionEl.textContent = quizArray[indexArray].question;
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
@@ -152,7 +157,8 @@ function clickedCorrect() {
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Rigth Answer!";
 	indexArray++;
-	// showPage();
+	cleanPage();
+	showPage();
 }
 
 function clickedWrong() {
@@ -160,5 +166,6 @@ function clickedWrong() {
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Wrong Answer! Keep trying";
 	indexArray++;
-	// showPage();
+	cleanPage();
+	showPage();
 }
