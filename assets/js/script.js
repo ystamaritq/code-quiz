@@ -151,7 +151,7 @@ function clickedCorrect() {
 	var hitShow = document.querySelector(".hit");
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Rigth Answer!";
-	// indexArray++;
+	indexArray++;
 	// showPage();
 }
 
@@ -159,6 +159,6 @@ function clickedWrong() {
 	var hitShow = document.querySelector(".hit");
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Wrong Answer! Keep trying";
-	// indexArray++;
+	indexArray++;
 	// showPage();
 }
