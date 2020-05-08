@@ -131,6 +131,9 @@ var timerEl = document.querySelector("#count");
 //var modal done page
 var modalDoneEl = document.querySelector("#modal-done");
 
+//var score element
+var scoreEl = document.querySelector("#finalscore");
+
 //function startQuiz
 function startQuiz() {
 	quizTimer();
@@ -165,8 +168,6 @@ function showPage() {
 		optionsEl.appendChild(btnEl);
 		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit) {
 			btnEl.addEventListener("click", timeDelayCorrect);
-			//var store the score to show at the end of the game
-			score++;
 		} else {
 			btnEl.addEventListener("click", timeDelayWrong);
 			timer = timer - 1;
@@ -213,9 +214,9 @@ function quizTimer() {
 
 		if (timer === 0 || indexArray === quizArray.length) {
 			clearInterval(timeId);
-			//TODO: all done show page with the scores and the initials and two buttons...etc
 			cleanPage();
 			modalDoneEl.classList.remove("d-none");
+			scoreEl.textContent = timer;
 		}
 	}, 1000);
 }
