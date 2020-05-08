@@ -128,6 +128,9 @@ var timer = 70;
 //timer element html
 var timerEl = document.querySelector("#count");
 
+//var modal done page
+var modalDoneEl = document.querySelector("#modal-done");
+
 //function startQuiz
 function startQuiz() {
 	quizTimer();
@@ -212,6 +215,7 @@ function quizTimer() {
 			clearInterval(timeId);
 			//TODO: all done show page with the scores and the initials and two buttons...etc
 			cleanPage();
+			modalDoneEl.classList.remove("d-none");
 		}
 	}, 1000);
 }
