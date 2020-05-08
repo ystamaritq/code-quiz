@@ -119,8 +119,18 @@ var hitShow = document.querySelector(".hit");
 //var index to go through the array
 var indexArray = 0;
 
+//var for viewscores
+var score = 0;
+
+//var timer
+var timer = 70;
+
+//timer element html
+var timerEl = document.querySelector("#count");
+
 //function startQuiz
 function startQuiz() {
+	quizTimer();
 	//hidden the section when the button is pressed
 	sectionWelcome.style.display = "none";
 	//show the sectionQuiz with the add class d-flex
@@ -150,14 +160,18 @@ function showPage() {
 		btnEl.textContent = quizArray[indexArray].answers[a].choice;
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
-		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit)
+		if (quizArray[indexArray].answers[a].id === quizArray[indexArray].hit) {
 			btnEl.addEventListener("click", timeDelayCorrect);
-		else btnEl.addEventListener("click", timeDelayWrong);
+			//var store the score to show at the end of the game
+			score++;
+		} else {
+			btnEl.addEventListener("click", timeDelayWrong);
+		}
 	}
 }
 
 function timeDelayCorrect() {
-	secondsDelay = 2;
+	var secondsDelay = 2;
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
 		hitShow.classList.add("mt-4");
@@ -173,7 +187,7 @@ function timeDelayCorrect() {
 }
 
 function timeDelayWrong() {
-	secondsDelay = 2;
+	var secondsDelay = 2;
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
 		hitShow.classList.add("mt-4");
@@ -184,6 +198,19 @@ function timeDelayWrong() {
 			indexArray++;
 			cleanPage();
 			showPage();
+		}
+	}, 1000);
+}
+
+function quizTimer() {
+	var timeId = setInterval(() => {
+		timer = timer - 1;
+		timerEl.textContent = timer;
+
+		if (timer === 0 || indexArray === quizArray.length) {
+			clearInterval(timeId);
+			//TODO: all done show page with the scores and the initials and two buttons...etc
+			cleanPage();
 		}
 	}, 1000);
 }
