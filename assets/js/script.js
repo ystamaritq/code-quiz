@@ -166,6 +166,7 @@ function showPage() {
 			score++;
 		} else {
 			btnEl.addEventListener("click", timeDelayWrong);
+			timer = timer - 1;
 		}
 	}
 }
