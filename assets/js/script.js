@@ -144,6 +144,9 @@ var initialArray = [];
  * start the quiz
  */
 function startQuiz() {
+	//reset quiz variables
+	indexArray = 0;
+	score = 0;
 	quizTimer();
 	//hidden the section when the button is pressed
 	sectionWelcome.style.display = "none";
@@ -265,7 +268,7 @@ function showHighscores() {
 
 function goBack() {
 	highscoresPageEl.textContent = "";
-	highscoresPageEl.classList.remove("shadow-lg");
+	highscoresPageEl.classList.remove("shadow-lg", "card");
 	sectionWelcome.classList.add("d-flex");
 }
 
