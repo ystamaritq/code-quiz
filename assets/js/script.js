@@ -264,12 +264,19 @@ function showHighscores() {
 }
 
 function goBack() {
+	timer = 0;
 	highscoresPageEl.classList.add("d-none");
 	highscoresPageEl.classList.remove("d-flex");
 	sectionWelcome.classList.add("d-flex");
+}
+
+function clearScores() {
+	userHighScores.splice(0, userHighScores.length);
+	showInitialScores.textContent = "";
 }
 
 // all event here
 startEl.addEventListener("click", startQuiz);
 submitEl.addEventListener("click", saveInitialScore);
 submitGobackEl.addEventListener("click", goBack);
+clearHighScoresEl.addEventListener("click", clearScores);
