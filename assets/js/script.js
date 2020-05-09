@@ -131,7 +131,7 @@ var highscoresPageEl = document.querySelector("#highscoresPage");
 //var for the initial elements
 var initialEl = document.querySelector("#initials");
 //var to show the initial and scores
-var showInitialScores = document.querySelector("#initial-id");
+var showInitialScores = document.querySelector("#scores-list");
 //var submitGoback element
 var submitGobackEl = document.querySelector("#submitGoback");
 //var clear highscores
@@ -271,7 +271,7 @@ function showHighscores() {
 
 	for (let i = 0; i < userHighScores.length; i++) {
 		var divEl = document.createElement("div");
-		divEl.classList.add("initial-score", "card", "pl-2", "shadow-sm");
+		divEl.classList.add("card", "initial-score", "pl-2", "shadow-sm", "mb-2");
 		divEl.textContent =
 			i +
 			1 +
