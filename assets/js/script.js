@@ -92,30 +92,6 @@ var quizArray = [
 	},
 ];
 
-//var to access the button element *start the quiz*
-var startEl = document.querySelector("#start");
-
-//var to access the welcome section
-var sectionWelcome = document.querySelector("#welcome-modal");
-
-//var to access the question section
-var sectionQuiz = document.querySelector("#modal-section");
-
-//var creating attribute to show the questions
-var questionEl = document.querySelector(".question-modal");
-
-//var options-modal
-var optionsEl = document.querySelector(".options-modal");
-
-//creating a button for the choices
-var btnEl = document.createElement("BUTTON");
-
-//adding addEventListener to the button to start the quiz
-startEl.addEventListener("click", startQuiz);
-
-//var hit selector
-var hitShow = document.querySelector(".hit");
-
 //var index to go through the array
 var indexArray = 0;
 
@@ -125,17 +101,52 @@ var score = 0;
 //var timer
 var timer = 70;
 
-//timer element html
-var timerEl = document.querySelector("#count");
+//var array for highscores (array of objects)
+var userHighScores = [];
 
+//var to access the button element *start the quiz*
+var startEl = document.querySelector("#start");
+//var to access the welcome section
+var sectionWelcome = document.querySelector("#welcome-modal");
+//var to access the question section
+var sectionQuiz = document.querySelector("#modal-section");
+//var creating attribute to show the questions
+var questionEl = document.querySelector(".question-modal");
+//var options-modal
+var optionsEl = document.querySelector(".options-modal");
+//var hit selector
+var hitShow = document.querySelector(".hit");
+//creating a button for the choices
+var btnEl = document.createElement("BUTTON");
 //var modal done page
 var modalDoneEl = document.querySelector("#modal-done");
-
 //var score element
 var scoreEl = document.querySelector("#finalscore");
+//var to get submit button element
+var submitEl = document.querySelector("#submit");
+//timer element html
+var timerEl = document.querySelector("#count");
+//var to get highscoresPage section
+var highscoresPageEl = document.querySelector("#highscoresPage");
+//var for the initial elements
+var initialEl = document.querySelector("#initials");
+//var to show the initial and scores
+var showInitialScores = document.querySelector("#initial-id");
+//var submitGoback element
+var submitGobackEl = document.querySelector("#submitGoback");
+//var clear highscores
+var clearHighScoresEl = document.querySelector("#submitClear");
 
-//function startQuiz
+//store the initial enter by the user
+var initialArray = [];
+
+/**
+ * start the quiz
+ */
 function startQuiz() {
+	//reset quiz variables
+	indexArray = 0;
+	score = 0;
 	quizTimer();
 	//hidden the section when the button is pressed
 	sectionWelcome.style.display = "none";
@@ -146,6 +157,9 @@ function startQuiz() {
 	showPage();
 }
 
+/**
+ * clean the page after start button is pressed
+ */
 function cleanPage() {
 	if (indexArray > 0) {
 		questionEl.textContent = "";
@@ -176,11 +190,13 @@ function showPage() {
 }
 
 function timeDelayCorrect() {
-	var secondsDelay = 2;
+	var secondsDelay = 1;
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Rigth Answer!";
+	score++;
+
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
-		hitShow.classList.add("mt-4");
-		hitShow.textContent = "Rigth Answer!";
 
 		if (secondsDelay === 0) {
 			clearInterval(time);
@@ -192,11 +208,12 @@ function timeDelayCorrect() {
 }
 
 function timeDelayWrong() {
-	var secondsDelay = 2;
+	var secondsDelay = 1;
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Wrong Answer! Keep trying";
+
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
-		hitShow.classList.add("mt-4");
-		hitShow.textContent = "Wrong Answer! Keep trying";
 
 		if (secondsDelay === 0) {
 			clearInterval(time);
@@ -216,7 +233,46 @@ function quizTimer() {
 			clearInterval(timeId);
 			cleanPage();
 			modalDoneEl.classList.remove("d-none");
-			scoreEl.textContent = timer;
+			scoreEl.textContent = score;
 		}
 	}, 1000);
 }
+
+function saveInitialScore() {
+	//getting the input and removing the outside spaces
+	var initialValue = initialEl.value.trim();
+
+	userHighScores.push({ initials: initialValue, score: score });
+
+	//clean the page before highscores display page
+	modalDoneEl.textContent = "";
+	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
+
+	// show the new page for highcores
+	showHighscores();
+}
+
+function showHighscores() {
+	highscoresPageEl.classList.remove("d-none");
+
+	for (let i = 0; i < userHighScores.length; i++) {
+		showInitialScores.textContent =
+			i +
+			1 +
+			". " +
+			userHighScores[i].initials +
+			" - " +
+			userHighScores[i].score;
+	}
+}
+
+function goBack() {
+	highscoresPageEl.textContent = "";
+	highscoresPageEl.classList.remove("shadow-lg", "card");
+	sectionWelcome.classList.add("d-flex");
+}
+
+// all event here
+startEl.addEventListener("click", startQuiz);
+submitEl.addEventListener("click", saveInitialScore);
+submitGobackEl.addEventListener("click", goBack);

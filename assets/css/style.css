@@ -18,3 +18,11 @@ img {
 	width: fit-content;
 	margin: auto;
 }
+
+.initial-score {
+	background-color: powderblue;
+}
+
+#highscoresPage {
+	width: 30em;
+}

@@ -31,7 +31,7 @@
     <!-- container -->
     <main class="container d-flex justify-content-center p-5 flex-column">
 
-        <section id="welcome-modal">
+        <section id="welcome-modal" class="justify-content-center">
             <!-- welcome page section -->
             <article class="text-center">
                 <h1 class="text-info">Welcome to Javascript Quiz!</h1>
@@ -57,7 +57,7 @@
 
         <!-- section to show finish quiz page and enter the initials -->
         <section class="card text-center shadow-lg d-none" id="modal-done">
-            <div class="done-modal mb-5 card-header shadow-sm">
+            <div class="mb-5 card-header shadow-sm">
                 <h1 class="text-info mb-2">All Done!</h1>
                 <p class="text-muted font-weight-bolder font-italic text-card">Your final score is: <span
                         id="finalscore" class="badge badge-info text-wrap shadow-xl"></span>
@@ -71,9 +71,19 @@
                     <button type="button" id="submit" class="btn btn-info px-4 ml-2">Submit</button>
                 </div>
             </form>
-
         </section>
 
+        <!-- section to show the highscores and come back to the start -->
+        <section class="card d-none flex-column m-auto p-5 shadow-lg" id="highscoresPage">
+            <h3 class="card-title m-auto pb-4">Highscores</h3>
+            <div class="card">
+                <div class="initial-score card pl-2 shadow-sm" id="initial-id"></div>
+            </div>
+            <div class="form-inline mt-3 d-flex justify-content-center">
+                <button type="button" id="submitGoback" class="btn btn-info px-4 ml-2">Go back</button>
+                <button type="button" id="submitClear" class="btn btn-info px-4 ml-2">Clear Highscores</button>
+            </div>
+        </section>
     </main>
 
 
