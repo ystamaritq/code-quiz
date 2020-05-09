@@ -134,6 +134,9 @@ var modalDoneEl = document.querySelector("#modal-done");
 //var score element
 var scoreEl = document.querySelector("#finalscore");
 
+//var to get submit button element
+var submitEl = document.querySelector("#submit");
+
 //function startQuiz
 function startQuiz() {
 	quizTimer();
@@ -176,11 +179,13 @@ function showPage() {
 }
 
 function timeDelayCorrect() {
-	var secondsDelay = 2;
+	var secondsDelay = 1;
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Rigth Answer!";
+	score++;
+
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
-		hitShow.classList.add("mt-4");
-		hitShow.textContent = "Rigth Answer!";
 
 		if (secondsDelay === 0) {
 			clearInterval(time);
@@ -192,11 +197,12 @@ function timeDelayCorrect() {
 }
 
 function timeDelayWrong() {
-	var secondsDelay = 2;
+	var secondsDelay = 1;
+	hitShow.classList.add("mt-4");
+	hitShow.textContent = "Wrong Answer! Keep trying";
+
 	var time = setInterval(function () {
 		secondsDelay = secondsDelay - 1;
-		hitShow.classList.add("mt-4");
-		hitShow.textContent = "Wrong Answer! Keep trying";
 
 		if (secondsDelay === 0) {
 			clearInterval(time);
@@ -216,7 +222,14 @@ function quizTimer() {
 			clearInterval(timeId);
 			cleanPage();
 			modalDoneEl.classList.remove("d-none");
-			scoreEl.textContent = timer;
+			scoreEl.textContent = score;
 		}
 	}, 1000);
 }
+
+function saveInitialScore() {
+	modalDoneEl.classList.add("d-none");
+	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
+}
+
+submitEl.addEventListener("click", saveInitialScore);
