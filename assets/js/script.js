@@ -104,6 +104,9 @@ var timer = 70;
 //add scores intials array
 var scoreArray = [];
 
+//index for array
+var indexScores = 0;
+
 //var to access the button element *start the quiz*
 var startEl = document.querySelector("#start");
 //var to access the welcome section
@@ -140,6 +143,7 @@ function startQuiz() {
 	sectionQuiz.classList.remove("d-none");
 	showPage();
 }
+
 /**
  * clean the page after start button is pressed
  */
@@ -224,12 +228,18 @@ function quizTimer() {
 function saveInitialScore() {
 	//adding the scores to an array to save them
 	scoreArray.push(score);
-
-	//clean the page before scores and initials display page
+	//increment the scores to get the index for the object
+	indexScores++;
+	//clean the page before highscores display page
 	modalDoneEl.textContent = "";
 	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
+
+	showHighscores();
 }
 
+function showHighscores() {}
+
+// all event here
 startEl.addEventListener("click", startQuiz);
 
 submitEl.addEventListener("click", saveInitialScore);
