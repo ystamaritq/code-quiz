@@ -25,71 +25,50 @@ var quizArray = [
 	},
 
 	{
-		question:
-			"Choose the correct JavaScript syntax to change the content of the following HTML code",
+		question: "How do you create a function in JavaScript?",
 		answers: [
-			{
-				choice: "A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
-				id: "A",
-			},
-			{
-				choice: "B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
-				id: "B",
-			},
-			{ choice: "C. document.getId(“geek”)=”I am a Geek”;", id: "C" },
-			{
-				choice: "D. document.getElementById(“geek”).innerHTML=I am a Geek;",
-				id: "D",
-			},
+			{ choice: "A. function:myFunction()", id: "A" },
+			{ choice: "B. function myFunction()", id: "B" },
+			{ choice: "C. function = myFunction()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
+		],
+		hit: "B",
+	},
+
+	{
+		question:
+			"Which built-in method combines the text of two strings and returns a new string?",
+		answers: [
+			{ choice: "A. append()", id: "A" },
+			{ choice: "B. concat()", id: "B" },
+			{ choice: "C. attach()", id: "C" },
+			{ choice: "D. None of the above.", id: "D" },
+		],
+		hit: "B",
+	},
+
+	{
+		question:
+			"Which of the following function of String object returns the characters in a string between two indexes into the string?",
+		answers: [
+			{ choice: "A. split()", id: "A" },
+			{ choice: "B. slice()", id: "B" },
+			{ choice: "C. substr()", id: "C" },
+			{ choice: "D. substring()", id: "D" },
 		],
 		hit: "D",
 	},
 
-	// {
-	// 	question: "How do you create a function in JavaScript?",
-	// 	answers: [
-	// 		{ choice: "A. function:myFunction()", id: "A" },
-	// 		{ choice: "B. function myFunction()", id: "B" },
-	// 		{ choice: "C. function = myFunction()", id: "C" },
-	// 		{ choice: "D. None of the above.", id: "D" },
-	// 	],
-	// 	hit: "B",
-	// },
-
-	// {
-	// 	question:
-	// 		"Which built-in method combines the text of two strings and returns a new string?",
-	// 	answers: [
-	// 		{ choice: "A. append()", id: "A" },
-	// 		{ choice: "B. concat()", id: "B" },
-	// 		{ choice: "C. attach()", id: "C" },
-	// 		{ choice: "D. None of the above.", id: "D" },
-	// 	],
-	// 	hit: "B",
-	// },
-
-	// {
-	// 	question:
-	// 		"Which of the following function of String object returns the characters in a string between two indexes into the string?",
-	// 	answers: [
-	// 		{ choice: "A. split()", id: "A" },
-	// 		{ choice: "B. slice()", id: "B" },
-	// 		{ choice: "C. substr()", id: "C" },
-	// 		{ choice: "D. substring()", id: "D" },
-	// 	],
-	// 	hit: "D",
-	// },
-
-	// {
-	// 	question: "How to write an IF statement in JavaScript?",
-	// 	answers: [
-	// 		{ choice: "A.  if i = 5", id: "A" },
-	// 		{ choice: "B.  if (i == 5)", id: "B" },
-	// 		{ choice: "C.  if i == 5 then", id: "C" },
-	// 		{ choice: "D.  if i = 5 then", id: "D" },
-	// 	],
-	// 	hit: "B",
-	// },
+	{
+		question: "How to write an IF statement in JavaScript?",
+		answers: [
+			{ choice: "A.  if i = 5", id: "A" },
+			{ choice: "B.  if (i == 5)", id: "B" },
+			{ choice: "C.  if i == 5 then", id: "C" },
+			{ choice: "D.  if i = 5 then", id: "D" },
+		],
+		hit: "B",
+	},
 ];
 
 //var index to go through the array
@@ -144,6 +123,7 @@ function startQuiz() {
 	//reset quiz variables
 	indexArray = 0;
 	score = 0;
+	timer = 70;
 
 	quizTimer();
 	//hidden the section when the button is pressed
