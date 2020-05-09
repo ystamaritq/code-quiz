@@ -147,11 +147,17 @@ function cleanPage() {
 		questionEl.textContent = "";
 		optionsEl.textContent = "";
 		hitShow.textContent = "";
+
+		if (showCornerScores) {
+			sectionWelcome.classList.remove("d-flex");
+			sectionWelcome.classList.add("d-none");
+		} else {
+			return;
+		}
 	}
 }
 
 function showPage() {
-	debugger;
 	if (indexArray === quizArray.length) return;
 	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
