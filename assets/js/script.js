@@ -115,6 +115,8 @@ var showInitialScores = document.querySelector("#scores-list");
 var submitGobackEl = document.querySelector("#submitGoback");
 //var clear highscores
 var clearHighScoresEl = document.querySelector("#submitClear");
+//var to show array highscores
+var showHighScoresCorner = document.querySelector("#view-scores-id");
 
 /**
  * start the quiz
@@ -275,8 +277,14 @@ function clearScores() {
 	showInitialScores.textContent = "";
 }
 
+function showCornerScores() {
+	cleanPage();
+	showHighscores();
+}
+
 // all event here
 startEl.addEventListener("click", startQuiz);
 submitEl.addEventListener("click", saveInitialScore);
 submitGobackEl.addEventListener("click", goBack);
 clearHighScoresEl.addEventListener("click", clearScores);
+showHighScoresCorner.addEventListener("click", showCornerScores);
