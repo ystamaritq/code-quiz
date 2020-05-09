@@ -115,6 +115,8 @@ var showInitialScores = document.querySelector("#scores-list");
 var submitGobackEl = document.querySelector("#submitGoback");
 //var clear highscores
 var clearHighScoresEl = document.querySelector("#submitClear");
+//var to show array highscores
+var showHighScoresCorner = document.querySelector("#view-scores-id");
 
 /**
  * start the quiz
@@ -145,11 +147,17 @@ function cleanPage() {
 		questionEl.textContent = "";
 		optionsEl.textContent = "";
 		hitShow.textContent = "";
+
+		if (showCornerScores) {
+			sectionWelcome.classList.remove("d-flex");
+			sectionWelcome.classList.add("d-none");
+		} else {
+			return;
+		}
 	}
 }
 
 function showPage() {
-	debugger;
 	if (indexArray === quizArray.length) return;
 	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
@@ -275,8 +283,14 @@ function clearScores() {
 	showInitialScores.textContent = "";
 }
 
+function showCornerScores() {
+	cleanPage();
+	showHighscores();
+}
+
 // all event here
 startEl.addEventListener("click", startQuiz);
 submitEl.addEventListener("click", saveInitialScore);
 submitGobackEl.addEventListener("click", goBack);
 clearHighScoresEl.addEventListener("click", clearScores);
+showHighScoresCorner.addEventListener("click", showCornerScores);
