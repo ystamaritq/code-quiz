@@ -137,6 +137,9 @@ var scoreEl = document.querySelector("#finalscore");
 //var to get submit button element
 var submitEl = document.querySelector("#submit");
 
+//add scores intials array
+var scoreArray = [];
+
 //function startQuiz
 function startQuiz() {
 	quizTimer();
@@ -228,6 +231,10 @@ function quizTimer() {
 }
 
 function saveInitialScore() {
+	//adding the scores to an array to save them
+	scoreArray.push(score);
+
+	//clean the page before scores and initials display page
 	modalDoneEl.classList.add("d-none");
 	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
 }
