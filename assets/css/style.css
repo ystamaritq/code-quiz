@@ -22,3 +22,7 @@ img {
 .initial-score {
 	background-color: powderblue;
 }
+
+#highscoresPage {
+	width: 30em;
+}
