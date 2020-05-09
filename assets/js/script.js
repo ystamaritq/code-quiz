@@ -25,27 +25,6 @@ var quizArray = [
 	},
 
 	{
-		question:
-			"Choose the correct JavaScript syntax to change the content of the following HTML code",
-		answers: [
-			{
-				choice: "A. document.getElement(“geek”).innerHTML=”I am a Geek”;",
-				id: "A",
-			},
-			{
-				choice: "B. document.getElementById(“geek”).innerHTML=”I am a Geek”;",
-				id: "B",
-			},
-			{ choice: "C. document.getId(“geek”)=”I am a Geek”;", id: "C" },
-			{
-				choice: "D. document.getElementById(“geek”).innerHTML=I am a Geek;",
-				id: "D",
-			},
-		],
-		hit: "D",
-	},
-
-	{
 		question: "How do you create a function in JavaScript?",
 		answers: [
 			{ choice: "A. function:myFunction()", id: "A" },
@@ -131,14 +110,11 @@ var highscoresPageEl = document.querySelector("#highscoresPage");
 //var for the initial elements
 var initialEl = document.querySelector("#initials");
 //var to show the initial and scores
-var showInitialScores = document.querySelector("#initial-id");
+var showInitialScores = document.querySelector("#scores-list");
 //var submitGoback element
 var submitGobackEl = document.querySelector("#submitGoback");
 //var clear highscores
 var clearHighScoresEl = document.querySelector("#submitClear");
-
-//store the initial enter by the user
-var initialArray = [];
 
 /**
  * start the quiz
@@ -147,9 +123,13 @@ function startQuiz() {
 	//reset quiz variables
 	indexArray = 0;
 	score = 0;
+	timer = 70;
+
 	quizTimer();
 	//hidden the section when the button is pressed
-	sectionWelcome.style.display = "none";
+	sectionWelcome.classList.remove("d-flex");
+	sectionWelcome.classList.add("d-none");
+
 	//show the sectionQuiz with the add class d-flex
 	sectionQuiz.classList.add("d-flex");
 	//remove the sectionQuiz with the remove class d-none
@@ -169,6 +149,8 @@ function cleanPage() {
 }
 
 function showPage() {
+	debugger;
+	if (indexArray === quizArray.length) return;
 	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
 	//show the question
@@ -231,11 +213,20 @@ function quizTimer() {
 
 		if (timer === 0 || indexArray === quizArray.length) {
 			clearInterval(timeId);
-			cleanPage();
-			modalDoneEl.classList.remove("d-none");
-			scoreEl.textContent = score;
+			completeQuiz();
 		}
 	}, 1000);
+}
+
+function completeQuiz() {
+	cleanPage();
+	modalDoneEl.classList.remove("d-none");
+	modalDoneEl.classList.add("d-flex");
+	scoreEl.textContent = score;
+
+	if (initialEl.value !== "") {
+		initialEl.value = "";
+	}
 }
 
 function saveInitialScore() {
@@ -245,8 +236,8 @@ function saveInitialScore() {
 	userHighScores.push({ initials: initialValue, score: score });
 
 	//clean the page before highscores display page
-	modalDoneEl.textContent = "";
-	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
+	modalDoneEl.classList.add("d-none");
+	modalDoneEl.classList.remove("d-flex");
 
 	// show the new page for highcores
 	showHighscores();
@@ -254,21 +245,27 @@ function saveInitialScore() {
 
 function showHighscores() {
 	highscoresPageEl.classList.remove("d-none");
+	highscoresPageEl.classList.add("d-flex");
+
+	showInitialScores.textContent = "";
 
 	for (let i = 0; i < userHighScores.length; i++) {
-		showInitialScores.textContent =
+		var divEl = document.createElement("div");
+		divEl.classList.add("card", "initial-score", "pl-2", "shadow-sm", "mb-2");
+		divEl.textContent =
 			i +
 			1 +
 			". " +
 			userHighScores[i].initials +
 			" - " +
 			userHighScores[i].score;
+		showInitialScores.appendChild(divEl);
 	}
 }
 
 function goBack() {
-	highscoresPageEl.textContent = "";
-	highscoresPageEl.classList.remove("shadow-lg", "card");
+	highscoresPageEl.classList.add("d-none");
+	highscoresPageEl.classList.remove("d-flex");
 	sectionWelcome.classList.add("d-flex");
 }
 
