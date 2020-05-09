@@ -101,11 +101,8 @@ var score = 0;
 //var timer
 var timer = 70;
 
-//add scores intials array
-var scoreArray = [];
-
-//index for array
-var indexScores = 0;
+//var array for highscores (array of objects)
+var userHighScores = [];
 
 //var to access the button element *start the quiz*
 var startEl = document.querySelector("#start");
@@ -129,6 +126,19 @@ var scoreEl = document.querySelector("#finalscore");
 var submitEl = document.querySelector("#submit");
 //timer element html
 var timerEl = document.querySelector("#count");
+//var to get highscoresPage section
+var highscoresPageEl = document.querySelector("#highscoresPage");
+//var for the initial elements
+var initialEl = document.querySelector("#initials");
+//var to show the initial and scores
+var showInitialScores = document.querySelector("#initial-id");
+//var submitGoback element
+var submitGobackEl = document.querySelector("#submitGoback");
+//var clear highscores
+var clearHighScoresEl = document.querySelector("#submitClear");
+
+//store the initial enter by the user
+var initialArray = [];
 
 /**
  * start the quiz
@@ -226,20 +236,40 @@ function quizTimer() {
 }
 
 function saveInitialScore() {
-	//adding the scores to an array to save them
-	scoreArray.push(score);
-	//increment the scores to get the index for the object
-	indexScores++;
+	//getting the input and removing the outside spaces
+	var initialValue = initialEl.value.trim();
+
+	userHighScores.push({ initials: initialValue, score: score });
+
 	//clean the page before highscores display page
 	modalDoneEl.textContent = "";
 	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
 
+	// show the new page for highcores
 	showHighscores();
 }
 
-function showHighscores() {}
+function showHighscores() {
+	highscoresPageEl.classList.remove("d-none");
+
+	for (let i = 0; i < userHighScores.length; i++) {
+		showInitialScores.textContent =
+			i +
+			1 +
+			". " +
+			userHighScores[i].initials +
+			" - " +
+			userHighScores[i].score;
+	}
+}
+
+function goBack() {
+	highscoresPageEl.textContent = "";
+	highscoresPageEl.classList.remove("shadow-lg");
+	sectionWelcome.classList.add("d-flex");
+}
 
 // all event here
 startEl.addEventListener("click", startQuiz);
-
 submitEl.addEventListener("click", saveInitialScore);
+submitGobackEl.addEventListener("click", goBack);
