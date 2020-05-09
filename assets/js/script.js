@@ -92,30 +92,6 @@ var quizArray = [
 	},
 ];
 
-//var to access the button element *start the quiz*
-var startEl = document.querySelector("#start");
-
-//var to access the welcome section
-var sectionWelcome = document.querySelector("#welcome-modal");
-
-//var to access the question section
-var sectionQuiz = document.querySelector("#modal-section");
-
-//var creating attribute to show the questions
-var questionEl = document.querySelector(".question-modal");
-
-//var options-modal
-var optionsEl = document.querySelector(".options-modal");
-
-//creating a button for the choices
-var btnEl = document.createElement("BUTTON");
-
-//adding addEventListener to the button to start the quiz
-startEl.addEventListener("click", startQuiz);
-
-//var hit selector
-var hitShow = document.querySelector(".hit");
-
 //var index to go through the array
 var indexArray = 0;
 
@@ -125,22 +101,35 @@ var score = 0;
 //var timer
 var timer = 70;
 
-//timer element html
-var timerEl = document.querySelector("#count");
-
-//var modal done page
-var modalDoneEl = document.querySelector("#modal-done");
-
-//var score element
-var scoreEl = document.querySelector("#finalscore");
-
-//var to get submit button element
-var submitEl = document.querySelector("#submit");
-
 //add scores intials array
 var scoreArray = [];
 
-//function startQuiz
+//var to access the button element *start the quiz*
+var startEl = document.querySelector("#start");
+//var to access the welcome section
+var sectionWelcome = document.querySelector("#welcome-modal");
+//var to access the question section
+var sectionQuiz = document.querySelector("#modal-section");
+//var creating attribute to show the questions
+var questionEl = document.querySelector(".question-modal");
+//var options-modal
+var optionsEl = document.querySelector(".options-modal");
+//var hit selector
+var hitShow = document.querySelector(".hit");
+//creating a button for the choices
+var btnEl = document.createElement("BUTTON");
+//var modal done page
+var modalDoneEl = document.querySelector("#modal-done");
+//var score element
+var scoreEl = document.querySelector("#finalscore");
+//var to get submit button element
+var submitEl = document.querySelector("#submit");
+//timer element html
+var timerEl = document.querySelector("#count");
+
+/**
+ * start the quiz
+ */
 function startQuiz() {
 	quizTimer();
 	//hidden the section when the button is pressed
@@ -151,7 +140,9 @@ function startQuiz() {
 	sectionQuiz.classList.remove("d-none");
 	showPage();
 }
-
+/**
+ * clean the page after start button is pressed
+ */
 function cleanPage() {
 	if (indexArray > 0) {
 		questionEl.textContent = "";
@@ -235,8 +226,10 @@ function saveInitialScore() {
 	scoreArray.push(score);
 
 	//clean the page before scores and initials display page
-	modalDoneEl.classList.add("d-none");
+	modalDoneEl.textContent = "";
 	modalDoneEl.classList.remove("card", "text-center", "shadow-lg");
 }
+
+startEl.addEventListener("click", startQuiz);
 
 submitEl.addEventListener("click", saveInitialScore);

@@ -31,7 +31,7 @@
     <!-- container -->
     <main class="container d-flex justify-content-center p-5 flex-column">
 
-        <section id="welcome-modal">
+        <section id="welcome-modal" hidden>
             <!-- welcome page section -->
             <article class="text-center">
                 <h1 class="text-info">Welcome to Javascript Quiz!</h1>
@@ -71,6 +71,18 @@
                     <button type="button" id="submit" class="btn btn-info px-4 ml-2">Submit</button>
                 </div>
             </form>
+        </section>
+
+        <!-- section to show the highscores and come back to the start -->
+        <section class="d-flex flex-column">
+            <h3 class="card-title m-auto pb-4">Highscores</h3>
+            <div class="card">
+                <div class="initial-score"> YT - 4</div>
+            </div>
+            <div class="form-inline mt-3 d-flex justify-content-center">
+                <button type="button" id="submitGoback" class="btn btn-info px-4 ml-2">Go back</button>
+                <button type="button" id="submitClear" class="btn btn-info px-4 ml-2">Clear Highscores</button>
+            </div>
         </section>
 
     </main>
