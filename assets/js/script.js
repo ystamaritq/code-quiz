@@ -137,9 +137,6 @@ var submitGobackEl = document.querySelector("#submitGoback");
 //var clear highscores
 var clearHighScoresEl = document.querySelector("#submitClear");
 
-//store the initial enter by the user
-var initialArray = [];
-
 /**
  * start the quiz
  */
@@ -246,6 +243,10 @@ function completeQuiz() {
 	modalDoneEl.classList.remove("d-none");
 	modalDoneEl.classList.add("d-flex");
 	scoreEl.textContent = score;
+
+	if (initialEl.value !== "") {
+		initialEl.value = "";
+	}
 }
 
 function saveInitialScore() {
@@ -270,7 +271,7 @@ function showHighscores() {
 
 	for (let i = 0; i < userHighScores.length; i++) {
 		var divEl = document.createElement("div");
-		divEl.classList.add("card", "pl-2", "shadow-sm");
+		divEl.classList.add("initial-score", "card", "pl-2", "shadow-sm");
 		divEl.textContent =
 			i +
 			1 +
