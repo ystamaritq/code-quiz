@@ -184,37 +184,21 @@ function showPage() {
 
 function timeDelayCorrect() {
 	var secondsDelay = 1;
+	score++;
+	indexArray++;
+	cleanPage();
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Rigth Answer!";
-	score++;
-
-	var time = setInterval(function () {
-		secondsDelay = secondsDelay - 1;
-
-		if (secondsDelay === 0) {
-			clearInterval(time);
-			indexArray++;
-			cleanPage();
-			showPage();
-		}
-	}, 1000);
+	showPage();
 }
 
 function timeDelayWrong() {
 	var secondsDelay = 1;
+	indexArray++;
+	cleanPage();
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Wrong Answer! Keep trying";
-
-	var time = setInterval(function () {
-		secondsDelay = secondsDelay - 1;
-
-		if (secondsDelay === 0) {
-			clearInterval(time);
-			indexArray++;
-			cleanPage();
-			showPage();
-		}
-	}, 1000);
+	showPage();
 }
 
 function quizTimer() {
