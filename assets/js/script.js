@@ -151,6 +151,8 @@ function cleanPage() {
 		if (showCornerScores) {
 			sectionWelcome.classList.remove("d-flex");
 			sectionWelcome.classList.add("d-none");
+			modalDoneEl.classList.remove("d-flex");
+			modalDoneEl.classList.add("d-none");
 		} else {
 			return;
 		}
@@ -272,7 +274,9 @@ function showHighscores() {
 }
 
 function goBack() {
-	timer = 0;
+	// timer = 0;
+	timerEl.textContent = 0;
+
 	highscoresPageEl.classList.add("d-none");
 	highscoresPageEl.classList.remove("d-flex");
 	sectionWelcome.classList.add("d-flex");
