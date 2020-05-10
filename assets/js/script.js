@@ -126,6 +126,7 @@ function startQuiz() {
 	indexArray = 0;
 	score = 0;
 	timer = 70;
+	showHighScoresCorner.setAttribute("disabled", "true");
 
 	quizTimer();
 	//hidden the section when the button is pressed
@@ -230,6 +231,7 @@ function quizTimer() {
 
 function completeQuiz() {
 	cleanPage();
+	showHighScoresCorner.removeAttribute("disabled");
 	modalDoneEl.classList.remove("d-none");
 	modalDoneEl.classList.add("d-flex");
 	scoreEl.textContent = score;
