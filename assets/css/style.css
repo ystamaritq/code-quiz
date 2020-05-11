@@ -22,11 +22,3 @@ img {
 .initial-score {
 	background-color: powderblue;
 }
-
-#highscoresPage {
-	width: 30em;
-}
-
-.btn-block + .btn-block {
-	margin-top: 0 !important;
-}
