@@ -180,7 +180,7 @@ function showPage() {
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
 		var btnEl = document.createElement("BUTTON");
-		btnEl.classList.add("btn", "btn-info", "px-5", "mb-3", "mt-2");
+		btnEl.classList.add("btn", "btn-info", "px-5", "mb-3", "mt-2", "text-left");
 		btnEl.textContent = quizArray[indexArray].answers[a].choice;
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
