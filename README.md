@@ -1,21 +1,10 @@
-# 04 Web APIs: Code Quiz
+# Code Quiz !
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+## Code Quiz description
 
-## User Story
+`This project hosts the source code for my Java Script Code Quiz. Timed quiz JavaScript fundamentals that stores high scores. Once you click the start button you will be presented with a series of multiple choice questions. You have only 60 seconds to finish.`
 
-```
-Timed quiz JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-## Acceptance Criteria
-
-```
-
-```
-
-The following animation demonstrates the application functionality:
+### The following animation demonstrates the application functionality:
 
 ![code quiz](./assets/img/ex1.png)
 ![code quiz](./assets/img/ex2.png)
