@@ -69,6 +69,17 @@ var quizArray = [
 		],
 		hit: "B",
 	},
+
+	{
+		question: "Which of the following is not a valid JavaScript variable name?",
+		answers: [
+			{ choice: "A. 2names", id: "A" },
+			{ choice: "B. _first_and_last_names", id: "B" },
+			{ choice: "C.  FirstAndLast", id: "C" },
+			{ choice: "D. None of the above", id: "D" },
+		],
+		hit: "A",
+	},
 ];
 
 //var index to go through the array
