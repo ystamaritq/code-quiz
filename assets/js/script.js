@@ -229,14 +229,19 @@ function saveInitialScore() {
 	//getting the input and removing the outside spaces
 	var initialValue = initialEl.value.trim();
 
-	userHighScores.push({ initials: initialValue, score: score });
+	//force the user to enter the initial
+	if (initialValue !== "" && typeof initialEl !== "string") {
+		userHighScores.push({ initials: initialValue, score: score });
 
-	//clean the page before highscores display page
-	modalDoneEl.classList.add("d-none");
-	modalDoneEl.classList.remove("d-flex");
+		//clean the page before highscores display page
+		modalDoneEl.classList.add("d-none");
+		modalDoneEl.classList.remove("d-flex");
 
-	// show the new page for highcores
-	showHighscores();
+		// show the new page for highcores
+		showHighscores();
+	} else {
+		alert("you must to enter your initials to save your score!");
+	}
 }
 
 function showHighscores() {
