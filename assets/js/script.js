@@ -251,7 +251,7 @@ function saveInitialScore() {
 	if (
 		initialValue !== "" &&
 		typeof initialEl.value === "string" &&
-		initialValue.match(/^[a-z]+$/)
+		initialValue.toLowerCase().match(/^[a-z]+$/)
 	) {
 		userHighScores.push({ initials: initialValue, score: score });
 
