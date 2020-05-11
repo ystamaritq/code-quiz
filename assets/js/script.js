@@ -89,10 +89,13 @@ var indexArray = 0;
 var score = 0;
 
 //var timer
-var timer = 70;
+var timer = 0;
 
 //var array for highscores (array of objects)
 var userHighScores = [];
+
+//var to check if in the middle of the quiz when the time is close to 0 the user select something
+var inProgress = false;
 
 //var to access the button element *start the quiz*
 var startEl = document.querySelector("#start");
@@ -136,6 +139,7 @@ function startQuiz() {
 	//reset quiz variables
 	indexArray = 0;
 	score = 0;
+	inProgress = true;
 	timer = 70;
 	showHighScoresCorner.setAttribute("disabled", "true");
 
@@ -155,24 +159,24 @@ function startQuiz() {
  * clean the page after start button is pressed
  */
 function cleanPage() {
-	if (indexArray > 0) {
-		questionEl.textContent = "";
-		optionsEl.textContent = "";
-		hitShow.textContent = "";
+	// if (indexArray >= 0) {
+	questionEl.textContent = "";
+	optionsEl.textContent = "";
+	hitShow.textContent = "";
 
-		if (showCornerScores) {
-			sectionWelcome.classList.remove("d-flex");
-			sectionWelcome.classList.add("d-none");
-			modalDoneEl.classList.remove("d-flex");
-			modalDoneEl.classList.add("d-none");
-		} else {
-			return;
-		}
+	if (showCornerScores) {
+		sectionWelcome.classList.remove("d-flex");
+		sectionWelcome.classList.add("d-none");
+		modalDoneEl.classList.remove("d-flex");
+		modalDoneEl.classList.add("d-none");
+	} else {
+		return;
 	}
+	// }
 }
 
 function showPage() {
-	if (indexArray === quizArray.length) return;
+	if (!inProgress || indexArray === quizArray.length) return;
 	//add a margin-bottom to the questions
 	questionEl.classList.add("mb-3");
 	//show the question
@@ -188,13 +192,11 @@ function showPage() {
 			btnEl.addEventListener("click", timeDelayCorrect);
 		} else {
 			btnEl.addEventListener("click", timeDelayWrong);
-			timer = timer - 1;
 		}
 	}
 }
 
 function timeDelayCorrect() {
-	var secondsDelay = 1;
 	score++;
 	indexArray++;
 	cleanPage();
@@ -204,7 +206,7 @@ function timeDelayCorrect() {
 }
 
 function timeDelayWrong() {
-	var secondsDelay = 1;
+	timer = timer - 1;
 	indexArray++;
 	cleanPage();
 	hitShow.classList.add("mt-4");
@@ -215,9 +217,12 @@ function timeDelayWrong() {
 function quizTimer() {
 	var timeId = setInterval(() => {
 		timer = timer - 1;
+
+		if (timer < 0) timer = 0;
+
 		timerEl.textContent = timer;
 
-		if (timer === 0 || indexArray === quizArray.length) {
+		if (timer <= 0 || indexArray === quizArray.length) {
 			clearInterval(timeId);
 			completeQuiz();
 		}
@@ -225,6 +230,8 @@ function quizTimer() {
 }
 
 function completeQuiz() {
+	timer = 0;
+	inProgress = false;
 	cleanPage();
 	showHighScoresCorner.removeAttribute("disabled");
 	modalDoneEl.classList.remove("d-none");
@@ -280,8 +287,8 @@ function showHighscores() {
 }
 
 function goBack() {
-	// timer = 0;
-	timerEl.textContent = 0;
+	timer = 0;
+	timerEl.textContent = timer;
 
 	highscoresPageEl.classList.add("d-none");
 	highscoresPageEl.classList.remove("d-flex");
