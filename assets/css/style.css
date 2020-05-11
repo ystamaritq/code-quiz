@@ -26,3 +26,7 @@ img {
 #highscoresPage {
 	width: 30em;
 }
+
+.btn-block + .btn-block {
+	margin-top: 0 !important;
+}

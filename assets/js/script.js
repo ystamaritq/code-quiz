@@ -69,6 +69,17 @@ var quizArray = [
 		],
 		hit: "B",
 	},
+
+	{
+		question: "Which of the following is not a valid JavaScript variable name?",
+		answers: [
+			{ choice: "A. 2names", id: "A" },
+			{ choice: "B. _first_and_last_names", id: "B" },
+			{ choice: "C.  FirstAndLast", id: "C" },
+			{ choice: "D. None of the above", id: "D" },
+		],
+		hit: "A",
+	},
 ];
 
 //var index to go through the array
@@ -126,6 +137,7 @@ function startQuiz() {
 	indexArray = 0;
 	score = 0;
 	timer = 70;
+	showHighScoresCorner.setAttribute("disabled", "true");
 
 	quizTimer();
 	//hidden the section when the button is pressed
@@ -151,6 +163,8 @@ function cleanPage() {
 		if (showCornerScores) {
 			sectionWelcome.classList.remove("d-flex");
 			sectionWelcome.classList.add("d-none");
+			modalDoneEl.classList.remove("d-flex");
+			modalDoneEl.classList.add("d-none");
 		} else {
 			return;
 		}
@@ -166,7 +180,7 @@ function showPage() {
 
 	for (let a = 0; a < quizArray[indexArray].answers.length; a++) {
 		var btnEl = document.createElement("BUTTON");
-		btnEl.classList.add("btn", "btn-info", "px-5", "mb-3", "mt-2");
+		btnEl.classList.add("btn", "btn-info", "px-5", "mb-3", "mt-2", "text-left");
 		btnEl.textContent = quizArray[indexArray].answers[a].choice;
 		optionsEl.classList.add("d-flex", "flex-column");
 		optionsEl.appendChild(btnEl);
@@ -181,37 +195,21 @@ function showPage() {
 
 function timeDelayCorrect() {
 	var secondsDelay = 1;
+	score++;
+	indexArray++;
+	cleanPage();
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Rigth Answer!";
-	score++;
-
-	var time = setInterval(function () {
-		secondsDelay = secondsDelay - 1;
-
-		if (secondsDelay === 0) {
-			clearInterval(time);
-			indexArray++;
-			cleanPage();
-			showPage();
-		}
-	}, 1000);
+	showPage();
 }
 
 function timeDelayWrong() {
 	var secondsDelay = 1;
+	indexArray++;
+	cleanPage();
 	hitShow.classList.add("mt-4");
 	hitShow.textContent = "Wrong Answer! Keep trying";
-
-	var time = setInterval(function () {
-		secondsDelay = secondsDelay - 1;
-
-		if (secondsDelay === 0) {
-			clearInterval(time);
-			indexArray++;
-			cleanPage();
-			showPage();
-		}
-	}, 1000);
+	showPage();
 }
 
 function quizTimer() {
@@ -228,6 +226,7 @@ function quizTimer() {
 
 function completeQuiz() {
 	cleanPage();
+	showHighScoresCorner.removeAttribute("disabled");
 	modalDoneEl.classList.remove("d-none");
 	modalDoneEl.classList.add("d-flex");
 	scoreEl.textContent = score;
@@ -241,14 +240,23 @@ function saveInitialScore() {
 	//getting the input and removing the outside spaces
 	var initialValue = initialEl.value.trim();
 
-	userHighScores.push({ initials: initialValue, score: score });
+	//force the user to enter the initial
+	if (
+		initialValue !== "" &&
+		typeof initialEl.value === "string" &&
+		initialValue.match(/^[a-z]+$/)
+	) {
+		userHighScores.push({ initials: initialValue, score: score });
 
-	//clean the page before highscores display page
-	modalDoneEl.classList.add("d-none");
-	modalDoneEl.classList.remove("d-flex");
+		//clean the page before highscores display page
+		modalDoneEl.classList.add("d-none");
+		modalDoneEl.classList.remove("d-flex");
 
-	// show the new page for highcores
-	showHighscores();
+		// show the new page for highcores
+		showHighscores();
+	} else {
+		alert("you must to enter your initials to save your score!");
+	}
 }
 
 function showHighscores() {
@@ -272,7 +280,9 @@ function showHighscores() {
 }
 
 function goBack() {
-	timer = 0;
+	// timer = 0;
+	timerEl.textContent = 0;
+
 	highscoresPageEl.classList.add("d-none");
 	highscoresPageEl.classList.remove("d-flex");
 	sectionWelcome.classList.add("d-flex");
