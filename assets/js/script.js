@@ -140,7 +140,7 @@ function startQuiz() {
 	indexArray = 0;
 	score = 0;
 	inProgress = true;
-	timer = 70;
+	timer = 60;
 	showHighScoresCorner.setAttribute("disabled", "true");
 
 	quizTimer();

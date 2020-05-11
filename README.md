@@ -17,7 +17,9 @@ SO THAT I can gauge my progress compared to my peers
 
 The following animation demonstrates the application functionality:
 
-![code quiz]()
+![code quiz](./assets/img/ex1.png)
+![code quiz](./assets/img/ex2.png)
+![code quiz](./assets/img/ex3.png)
 
 ### Review
 
