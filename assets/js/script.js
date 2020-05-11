@@ -230,7 +230,11 @@ function saveInitialScore() {
 	var initialValue = initialEl.value.trim();
 
 	//force the user to enter the initial
-	if (initialValue !== "" && typeof initialEl !== "string") {
+	if (
+		initialValue !== "" &&
+		typeof initialEl.value === "string" &&
+		initialValue.match(/^[a-z]+$/)
+	) {
 		userHighScores.push({ initials: initialValue, score: score });
 
 		//clean the page before highscores display page
