@@ -93,6 +93,9 @@ var timer = 0;
 
 //var array for highscores (array of objects)
 var userHighScores = [];
+if (localStorage.getItem("userHighScores") !== null) {
+	userHighScores = JSON.parse(localStorage.getItem("userHighScores"));
+}
 
 //var to check if in the middle of the quiz when the time is close to 0 the user select something
 var inProgress = false;
@@ -254,6 +257,7 @@ function saveInitialScore() {
 		initialValue.toLowerCase().match(/^[a-z]+$/)
 	) {
 		userHighScores.push({ initials: initialValue, score: score });
+		localStorage.setItem("userHighScores", JSON.stringify(userHighScores));
 
 		//clean the page before highscores display page
 		modalDoneEl.classList.add("d-none");
@@ -297,6 +301,7 @@ function goBack() {
 
 function clearScores() {
 	userHighScores.splice(0, userHighScores.length);
+	localStorage.removeItem("userHighScores");
 	showInitialScores.textContent = "";
 }
 
