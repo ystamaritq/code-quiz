@@ -32,10 +32,6 @@ THEN I can save my initials and score
 
 ![code quiz](./assets/img/code-quiz.gif)
 
-[Deployed link: Try it out!](https://ystamaritq.github.io/code-quiz/) </div>
-
-[GitHub link](https://github.com/ystamaritq/code-quiz) </div>
-
 ## Installing / Getting Started
 
 To test this project, simply clone project into a your local file system and open `index.html` in your favorite browser.
@@ -71,6 +67,12 @@ Below is a summary of the key files for this project and their purpose:
 ## Features
 
 In this java script quiz once you click the start button you will be presented with a series of multiple choice questions and you have only 60 seconds to finish.
+
+## Links
+
+[Deployed link: Try it out!](https://ystamaritq.github.io/code-quiz/) </div>
+
+[GitHub link](https://github.com/ystamaritq/code-quiz) </div>
 
 ## Licensing
 
