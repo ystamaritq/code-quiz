@@ -32,6 +32,10 @@ THEN I can save my initials and score
 
 ![code quiz](./assets/img/code-quiz.gif)
 
+[Deployed link: Try it out!](https://ystamaritq.github.io/code-quiz/) </div>
+
+[GitHub link](https://github.com/ystamaritq/code-quiz) </div>
+
 ## Installing / Getting Started
 
 To test this project, simply clone project into a your local file system and open `index.html` in your favorite browser.
